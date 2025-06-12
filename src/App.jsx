@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/products`)
+      .get(`https://dummyjson.com/products`)
       .then((res) => {
         console.log(res.data.products);
         setAllProducts(res.data.products);
@@ -34,7 +34,7 @@ function App() {
   //functions
   function handleDelete(productId) {
     axios
-      .delete(`${API_URL}/products/${productId}`)
+      .delete(`https://dummyjson.com/products/${productId}`)
       .then(() => {
         const filteredProducts = allProducts.filter((oneProduct) => {
           if (oneProduct.id !== productId) {
