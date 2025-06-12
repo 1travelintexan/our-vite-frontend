@@ -1,0 +1,33 @@
+body {
+  text-align: center;
+}
+a {
+  text-decoration: none;
+  margin: 10px;
+}
+.active {
+  color: red;
+}
+
+.product-card {
+  border: 1px solid white;
+  padding: 10px;
+  margin: 10px;
+  width: 25%;
+}
+.product-card img {
+  width: 80%;
+}
+.products-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+button {
+  margin: 5px;
+}
+.light-theme {
+  background-color: rgb(75, 124, 124);
+  color: rgb(150, 148, 148);
+}
