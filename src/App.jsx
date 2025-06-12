@@ -15,23 +15,26 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const nav = useNavigate();
 
+  //create a variable that equals something in the .env or localhost: 5005
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
+
   //here is where we get the data from the context
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
 
   useEffect(() => {
     axios
-      .get("https://dummyjson.com/products")
+      .get(`${API_URL}/products`)
       .then((res) => {
         console.log(res.data.products);
         setAllProducts(res.data.products);
         setIsLoading(false);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [API_URL]);
   //functions
   function handleDelete(productId) {
     axios
-      .delete(`https://dummyjson.com/products/${productId}`)
+      .delete(`${API_URL}/products/${productId}`)
       .then(() => {
         const filteredProducts = allProducts.filter((oneProduct) => {
           if (oneProduct.id !== productId) {
